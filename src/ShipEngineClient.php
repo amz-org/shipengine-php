@@ -21,7 +21,7 @@ use ShipEngine\Util\Assert;
  *
  * @package ShipEngine
  */
-final class ShipEngineClient
+class ShipEngineClient
 {
 
     /**
