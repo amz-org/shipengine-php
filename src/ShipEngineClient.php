@@ -159,7 +159,10 @@ class ShipEngineClient
                 $request,
                 ['timeout' => $config->timeout->s, 'http_errors' => false]
             );
+
+            $this->log($request, $response, null);
         } catch (ClientException $err) {
+            $this->log($request, null, $err);
             throw new ShipEngineException(
                 "An unknown error occurred while calling the ShipEngine $method API:\n" .
                 $err->getMessage(),
@@ -182,6 +185,10 @@ class ShipEngineClient
         return $this->handleResponse($parsedResponse);
     }
 
+    /**
+     * Temporary define
+     */
+    protected function log($request, $response, $error) {}
 
     /**
      * Handles the response from ShipEngine API.
