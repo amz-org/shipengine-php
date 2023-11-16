@@ -88,7 +88,7 @@ class ShipEngineClient
      * @return array
      * @throws GuzzleException
      */
-    private function sendRequestWithRetries(
+    protected function sendRequestWithRetries(
         string $method,
         string $path,
         ?array $params,
@@ -128,7 +128,7 @@ class ShipEngineClient
      * @return array
      * @throws GuzzleException
      */
-    private function sendRequest(
+    protected function sendRequest(
         string $method,
         string $path,
         ?array $params,
@@ -189,7 +189,7 @@ class ShipEngineClient
      * @param array $response
      * @return array
      */
-    private function handleResponse(array $response): array
+    protected function handleResponse(array $response): array
     {
         if (!isset($response['errors']) || (count($response['errors']) == 0)) {
             return $response;
@@ -212,7 +212,7 @@ class ShipEngineClient
      *
      * @returns string
      */
-    private function deriveUserAgent(): string
+    protected function deriveUserAgent(): string
     {
         $sdk_version = 'shipengine-php/' . ShipEngine::VERSION;
 
